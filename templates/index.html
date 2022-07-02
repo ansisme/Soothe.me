@@ -1,0 +1,50 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://steamuserimages-a.akamaihd.net/ugc/828009854492569278/E9E737BBFD61D366629BE3E2C3085B0B2B537A67/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>SootheMe</h1>
+            <span class="subheading">"It's all about finding the CALM in the CHAOS! " </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in all_posts %}
+        <div class="post-preview">
+          <a href="{{ url_for('show_post', post_id=post.id) }}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">{{post.author}}</a>
+            on {{post.date}}</p>
+          <a style="color:purple" href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
+        </div>
+        <hr>
+        {% endfor %}
+
+
+        <!-- New Post -->
+        <div class="clearfix" >
+          <a class="btn btn-primary purple float-right" style="background-color:purple;border-color:i;" href="{{url_for('new_post')}}">Create New Post</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+{% include "footer.html" %}

@@ -1,0 +1,59 @@
+main.py
+
+#CommentForm
+class CommentForm(FlaskForm):
+    comment_text = CKEditorField("Comment", validators=[DataRequired()])
+    submit = SubmitField("Submit Comment")
+
+
+
+    # #*******Add parent relationship*******#
+    # #"comment_author" refers to the comment_author property in the Comment class.
+    # comments = relationship("Comment", back_populates="comment_author")
+
+
+# #comment class
+# class Comment(db.Model):
+#     __tablename__ = "comments"
+#     id = db.Column(db.Integer, primary_key=True)
+#     text = db.Column(db.Text, nullable=False)
+#     # #*******Add child relationship*******#
+#     # #"users.id" The users refers to the tablename of the Users class.
+#     # #"comments" refers to the comments property in the User class.
+#     # author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+#     # comment_author = relationship("User", back_populates="comments")
+# db.create_all()
+
+
+
+post.html
+#Load the CKEditor-->
+<!--            {{ ckeditor.load() }}-->
+<!--          #Configure it with the name of the form field from CommentForm-->
+<!--            {{ ckeditor.config(name='comment_text') }}-->
+<!--          #Create the wtf quickform from CommentForm-->
+<!--            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}-->
+
+<!--          <div class="col-lg-8 col-md-10 mx-auto comment">-->
+<!--              <ul class="commentList">-->
+<!--                <li>-->
+<!--                    <div class="commenterImage">-->
+<!--                      <img src="https://pbs.twimg.com/profile_images/744849215675838464/IH0FNIXk.jpg"/>-->
+<!--                    </div>-->
+<!--                    <div class="commentText">-->
+<!--                      <p>Some comment</p>-->
+<!--                      <span class="date sub-text">comment author name</span>-->
+
+<!--                    </div>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+
+
+
+contact is optional too
+
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{ url_for('contact') }}" >Contact</a>-->
+<!--          </li>-->
+

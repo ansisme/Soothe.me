@@ -1,0 +1,46 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{post.img_url}}')">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="post-heading">
+					<h1>{{post.title}}</h1>
+					<h2 class="subheading">{{post.subtitle}}</h2>
+					<span class="meta">Posted by
+              <a href="#">{{post.author}}</a>
+              on {{post.date}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+	<div style="margin: 10px auto;">
+		<video class="video_uploader" style="margin-left:120px;margin-top:50px;padding:0px 200px 0px 200px;width:80rem;box-sizing:border-box;" autoplay="autoplay" controls="controls" preload="preload">
+			<source src="{{ url_for('static', filename='uploads/'+post.upload_file) }}" type="video/mp4"> </source>
+		</video>
+	</div>
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>
+            {{post.body|safe}}
+          </p>
+           <hr>
+            {% if current_user.id == 1 %}
+           <div class="clearfix">
+                <a class="btn btn-primary float-right purple" style="background-color:purple" href="{{url_for('edit_post', post_id=post.id)}}">Edit Post</a>
+            {% endif %}
+           </div>
+          </div>
+      </div>
+    </div>
+
+  </article>
+
+  <hr>
+{% include "footer.html" %}
