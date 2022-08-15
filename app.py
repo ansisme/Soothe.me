@@ -15,7 +15,7 @@ from flask_login import UserMixin, login_user, LoginManager, logout_user
 
 # login_required, current_user
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = 'your api key'
 ckeditor = CKEditor(app)
 
 Bootstrap(app)
