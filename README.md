@@ -1,1 +1,1 @@
-"SootheMe" is a niche blog website created using in Python programming language, with  Flask as the backend. that allows the users to create and edit blogs. A platform for users to creat, edit and post blogs such as ASMR.
+"Soothe.me" is a niche blog website created using in Python programming language, with  Flask as the backend. that allows the users to create and edit blogs. A platform for users to creat, edit and post blogs such as ASMR.
